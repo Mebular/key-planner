@@ -18,19 +18,6 @@ class Piano extends React.Component {
                 <Key note="a1"/>
                 <Key note="a#1"/>
                 <Key note="b1"/>
-
-                <Key note="c2"/>
-                <Key note="c#2"/>
-                <Key note="d2"/>
-                <Key note="d#2"/>
-                <Key note="e2"/>
-                <Key note="f2"/>
-                <Key note="f#2"/>
-                <Key note="g2"/>
-                <Key note="g#2"/>
-                <Key note="a2"/>
-                <Key note="a#2"/>
-                <Key note="b2"/>
             </div>
         )
     }

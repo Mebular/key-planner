@@ -1,0 +1,56 @@
+.root-selector {
+    display: flex;
+    
+}
+
+.root-selector-title {
+    writing-mode: vertical-rl;
+    transform: scale(-1);
+    font-size: 18px;
+    position:fixed;
+    margin-left: 10px;
+    margin-top: 40px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.wrapper {
+    border: 3px solid white;
+    border-radius:20px;
+}
+
+.root-button-container {
+    padding-left: 40px;
+}
+
+.root-button {
+    all: unset;
+    border: 3px solid white;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    vertical-align: bottom;
+}
+.root-button:hover {
+    outline: 3px solid rgba(166, 255, 0, 0.5);
+}
+
+.root-button-sharp {
+    all: unset;
+    border: 3px solid white;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    margin-bottom: 75px;
+    vertical-align: top;
+}
+.root-button-sharp:hover {
+    outline: 3px solid rgba(166, 255, 0, 0.5);
+}
