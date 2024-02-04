@@ -37,6 +37,9 @@
 .root-button:hover {
     outline: 3px solid rgba(166, 255, 0, 0.5);
 }
+.root-button:active {
+    background-color: rgba(166, 255, 0, 0.5);
+}
 
 .root-button-sharp {
     all: unset;
@@ -53,4 +56,7 @@
 }
 .root-button-sharp:hover {
     outline: 3px solid rgba(166, 255, 0, 0.5);
+}
+.root-button-sharp:active {
+    background-color: rgba(166, 255, 0, 0.5);
 }
