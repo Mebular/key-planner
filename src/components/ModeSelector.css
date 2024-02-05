@@ -1,0 +1,52 @@
+.mode-selector {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    border: 3px solid white;
+    border-radius:20px;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.major-title {
+    font-size: 24px;
+}
+
+.major-panel {
+    display: flex;
+    flex-direction: column;
+    margin-top:72px;
+}
+
+.minor-title {
+    font-size: 24px;
+}
+
+.minor-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.mode-button {
+    all: unset;
+    border: 3px solid white;
+    width: 200px;
+    height: 75px;
+    border-radius: 30px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px;
+    vertical-align: bottom;
+}
+
+.mode-button:hover {
+    outline: 3px solid rgba(166, 255, 0, 0.5);
+}
+
+.mode-button:active {
+    background-color: #a6ff0080;
+}
