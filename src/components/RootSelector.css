@@ -1,21 +1,20 @@
-.root-selector {
-    display: flex;
-}
 
 .root-selector-title {
     writing-mode: vertical-rl;
     transform: scale(-1);
-    font-size: 18px;
+    font-size: px;
+    font-family:'Orbitron', sans-serif;
     position:absolute;
     margin-left: 10px;
     margin-top: 40px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.wrapper {
+.root-wrapper {
     border: 3px solid white;
     border-radius:20px;
-    margin:10px;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2) ;
+    background-color: rgb(215, 215, 215);
+    padding: 5px;
 }
 
 .root-button-container {
@@ -28,11 +27,13 @@
     width: 50px;
     height: 50px;
     border-radius: 30px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 20px;
+    font-family:'Orbitron', sans-serif;
+    font-size: 18px;
     font-weight: bold;
     margin: 10px;
     vertical-align: bottom;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
+    background-color: rgb(225, 225, 225);
 }
 .root-button:hover {
     outline: 3px solid rgba(166, 255, 0, 0.5);
@@ -47,12 +48,14 @@
     width: 50px;
     height: 50px;
     border-radius: 30px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 20px;
+    font-family:'Orbitron', sans-serif;
+    font-size: 18px;
     font-weight: bold;
     margin: 10px;
     margin-bottom: 75px;
     vertical-align: top;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
+    background-color: rgb(200, 200, 200);
 }
 .root-button-sharp:hover {
     outline: 3px solid rgba(166, 255, 0, 0.5);

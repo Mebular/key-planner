@@ -3,16 +3,20 @@
     flex-direction: column;
 }
 
-.wrapper {
+.mode-wrapper {
     border: 3px solid white;
     border-radius:20px;
     display: flex;
     flex-direction: row;
-    margin: 10px;
+    margin-top: 25px;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2) ;
+    background-color: rgb(215, 215, 215);
+    padding:5px;
 }
 
 .major-title {
     font-size: 24px;
+    font-family:'Orbitron', sans-serif;
 }
 
 .major-panel {
@@ -23,6 +27,7 @@
 
 .minor-title {
     font-size: 24px;
+    font-family:'Orbitron', sans-serif;
 }
 
 .minor-panel {
@@ -36,17 +41,16 @@
     width: 200px;
     height: 75px;
     border-radius: 30px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:'Orbitron', sans-serif;
     font-size: 32px;
     font-weight: bold;
     margin: 10px;
     vertical-align: bottom;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
+    background-color: rgb(225, 225, 225);
+
 }
 
 .mode-button:hover {
-    outline: 3px solid rgba(166, 255, 0, 0.5);
-}
-
-.mode-button:active {
-    background-color: #a6ff0080;
+    outline: 3px solid rgba(166, 255, 0, 0.2);
 }

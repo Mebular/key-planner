@@ -6,7 +6,7 @@ class RootSelector extends React.Component {
 
     render() {
         return(
-        <div className="wrapper">
+        <div className="root-wrapper">
             <div>
                 <h3 className='root-selector-title'>ROOT</h3>
             </div>

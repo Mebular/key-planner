@@ -18,12 +18,12 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
         <h1 className="indicator-wrapper">{keyRoot} {keyMode}</h1>
         <RootSelector root = {keyRoot} changeRoot = {handleRoot}/>
-        <ModeSelector mode = {keyMode} changeMode = {handleMode}/>
+        <div>
+          <ModeSelector mode = {keyMode} changeMode = {handleMode}/>
+        </div>
         <Piano />
-      </header>
     </div>
   );
 }

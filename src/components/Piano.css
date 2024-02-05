@@ -1,5 +1,7 @@
 .piano {
     display: flex;
     flex-direction: row;
-    padding:20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2) ;
 }
