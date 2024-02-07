@@ -3,8 +3,25 @@ import { useState } from 'react';
 import './ScaleSelector.css'
 import { Piano } from '../components/Piano.js';
 import * as Tone from 'tone';
+import { RxSpeakerLoud } from 'react-icons/rx'
 
 class ScaleSelector extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            bpm: 120,
+            octave: 3,
+            playing: false
+        }
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(type) {
+        this.setState(prevState => {
+            return {octave: type === "up" ? prevState.octave+1 : prevState.octave-1}
+        });
+    }
 
     FindSteps = (mode) => {
         let keySteps = [2,2,1,2,2,2,1];
@@ -60,16 +77,14 @@ class ScaleSelector extends React.Component {
         return finalScale;
     }
 
-    ScaleForSynth = (keyScale, octave) => {
+    ScaleForSynth = (keyScale, oct) => {
         let synthScale = [];
         var i;
-        octave = 3;
-        
         for(i = 0; i < 8 ; i++){
             if(i !== 0 && (keyScale[i] === "C" || (keyScale[i] === "C#") && keyScale[i-1] !== "C")){
-                octave++;
+                oct++;
             }
-            synthScale.push(keyScale[i] + octave.toString());
+            synthScale.push(keyScale[i] + oct.toString());
         }
 
         return synthScale;
@@ -86,22 +101,49 @@ class ScaleSelector extends React.Component {
         let keyScale;
         keyScale = this.FindScale(this.props.root, keySteps, notes);
         let synthScale;
-        synthScale = this.ScaleForSynth(keyScale);
+        synthScale = this.ScaleForSynth(keyScale, this.state.octave);
 
         let synth;
+        let chordSynth;
         let toneLoop;
 
         let index = 0;
 
-        synth = new Tone.Synth().toDestination();
+        synth = new Tone.PolySynth(Tone.Synth).toDestination();
+        chordSynth = new Tone.PolySynth(Tone.Synth).toDestination();
+
+        synth.volume.value = 0;
+        chordSynth.volume.value = -10;
+
         toneLoop = new Tone.Loop(playLoop, '8n');
    
         function playLoop () {
             const note = synthScale[index];
-            synth.triggerAttackRelease(note, '16n');
+            const noteRoot = synthScale[0]
+            const noteThird = synthScale[2];
+            const noteFifth = synthScale[4];
+            if(index===0){
+                chordSynth.triggerAttackRelease([noteRoot, noteThird, noteFifth], '1n');
+                synth.triggerAttackRelease(note, '16n');
+            }
+            else{
+                synth.triggerAttackRelease(note, '16n');
+            }
             index++;
             if (index === synthScale.length) {
                 index = 0;
+            }
+        }
+
+        function playMute () {
+            if(Tone.Transport.state === "paused" || Tone.Transport.state === "stopped"){
+                Tone.Transport.start()
+                toneLoop.start();   
+            }    
+            else if(Tone.Transport.state === "started"){
+                Tone.Transport.pause();
+                Tone.Transport.cancel();
+                toneLoop.stop();
             }
         }
 
@@ -114,8 +156,17 @@ class ScaleSelector extends React.Component {
             <div className="piano-wrapper">
                 <Piano pianoScale = {keyScale}/>
             </div>
-            
-
+            <div className="settings-panel">
+                <div className="octave-settings-panel">
+                    <button className="octave-arrow-button" onClick={this.handleClick.bind(this, "down")}>{"<"}</button>
+                    <div className="octave-wrapper">
+                        <h1>{this.state.octave}</h1>
+                    </div>
+                    <button className="octave-arrow-button" onClick={this.handleClick.bind(this, "up")}>{">"}</button>
+                </div>
+                {/* <div className="playing-light" style={{backgroundColor: this.playing ? "#a6ff0080" : "red"}}></div> */}
+                <RxSpeakerLoud className='mute-button' onClick={playMute}/>
+            </div>
             <div className="scale-wrapper">
                 <h1 style={{textShadow: "0px 0px 25px rgba(164,255,0,1)"}}>{keyScale[0]}</h1>
                 <h1>{keyScale[1]}</h1>
