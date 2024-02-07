@@ -19,6 +19,15 @@ class Key extends React.Component {
         }
     }
 
+    IsNoteRoot = (note, scale) => {
+        if(scale[0] === note){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     render() {
         let keyClassName = 'key';
         const noteIsFlat = this.IsNoteFlat(this.props.note);
@@ -28,19 +37,37 @@ class Key extends React.Component {
         }
 
         let noteIsInScale = this.IsNoteInScale(this.props.note, this.props.keyScale)
+        let noteIsRoot = this.IsNoteRoot(this.props.note, this.props.keyScale)
 
         let key;
         if (noteIsFlat) {
-            key = <div className={keyClassName} style={{backgroundColor: noteIsInScale ? "#a6ff0080" : "black"}}></div>;
+            if(noteIsInScale){
+                key = <div className={keyClassName} style={{background: noteIsRoot ? "linear-gradient(to top, #a6ff08, #292929)" : "linear-gradient(to top, #84cc06, #292929 40%)"}}></div>;
+            }
+            else {
+                key = <div className={keyClassName} style={{backgroundColor: "#292929"}}></div>;
+            }
         }
         else {
-            key = (
-                <div className={keyClassName} style={{backgroundColor: noteIsInScale ? "#a6ff0080" : "white"}}>
-                    {/* <div className='key-text'>
-                        {this.props.note[0].toUpperCase()}
-                    </div> */}
-                </div>
-                );
+            if(noteIsInScale)
+            {
+                key = (
+                    <div className={keyClassName} style={{background: noteIsRoot ? "linear-gradient(to top, #a6ff08, white)" : "linear-gradient(to top, #84cc06, white 40%)"}}>
+                        {/* <div className='key-text'>
+                            {this.props.note[0].toUpperCase()}
+                        </div> */}
+                    </div>
+                    );
+            }
+            else {
+                key = (
+                    <div className={keyClassName} style={{backgroundColor: "white"}}>
+                        {/* <div className='key-text'>
+                            {this.props.note[0].toUpperCase()}
+                        </div> */}
+                    </div>
+                    );
+            }
         }
         
         return key;

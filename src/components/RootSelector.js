@@ -8,7 +8,7 @@ class RootSelector extends React.Component {
         return(
         <div className="root-wrapper">
             <div>
-                <h3 className='root-selector-title'>ROOT</h3>
+                <h3 className='root-selector-title'>TONIC</h3>
             </div>
             <div className="root-button-container">
                 <button value='C' style={{backgroundColor: this.props.root==='C' ? "#a6ff0080" : ""}} className="root-button" onClick={() => this.props.changeRoot("C")}>C</button>

@@ -1,7 +1,6 @@
 import './App.css';
 import React, {useState} from 'react'
 import * as Tone from 'tone';
-import { Piano } from './components/Piano.js';
 import { RootSelector } from './components/RootSelector.js';
 import { ModeSelector } from './components/ModeSelector.js';
 import { ScaleSelector } from './components/ScaleSelector.js';
