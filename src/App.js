@@ -22,12 +22,14 @@ function App() {
 
   return (
     <div className="App">
+      <div className="content-wrapper">
         <h1 className="indicator-wrapper">{keyRoot} {keyMode}</h1>
         <RootSelector root = {keyRoot} changeRoot = {handleRoot}/>
         <div className='scale-mode-wrapper'>
           <ScaleSelector root = {keyRoot} mode = {keyMode} changeScale={handleScale}/>
           <ModeSelector mode = {keyMode} changeMode = {handleMode}/>
         </div>
+      </div>
     </div>
   );
 }
