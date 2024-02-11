@@ -43,7 +43,7 @@
 .mute-button {
     width: 40px;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 5px;
     background-color: rgb(225, 225, 225);
     border: 3px solid white;
@@ -54,17 +54,7 @@
     align-content: center;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
 }
-.playing-light {
-    width: 10px;
-    height: 10px;
-    border: 3px solid white;
-    margin-top: 50px;
-    box-shadow: 0px 0px 25px rgba(164,255,0,1);
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-}
+
 .octave-wrapper {
     border: 6px solid white;
     width: 75px;
@@ -82,7 +72,7 @@
 }
 
 .settings-panel {
-    margin-top: 350px;
+    margin-top: 0px;
     display:flex;
     flex-direction: column;
     font-family:'Orbitron', sans-serif;
@@ -91,13 +81,23 @@
     justify-content: center;
 }
 
+.pattern-title-wrapper {
+    display:flex;
+    flex-direction: row;
+    font-family:'Orbitron', sans-serif;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    margin-top: -20px;
+}
+
 .octave-settings-panel {
     display:flex;
     flex-direction: row;
     font-family:'Orbitron', sans-serif;
     align-items: center;
     justify-content: center;
-    margin-top: -350px;
+    margin-top: 50px;
 }
 
 .octave-arrow-button {
@@ -111,4 +111,68 @@
     padding-left: 5px;
     background-color: rgb(225,225,225);
     border: 3px solid white;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
+}
+
+.bpm-settings-panel {
+    display:flex;
+    flex-direction: row;
+    font-family:'Orbitron', sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.bpm-arrow-button {
+    height: 50px;
+    width: 30px;
+    border-radius: 5px;
+    font-family: "Orbitron", "sans-serif";
+    color: rgb(41, 41, 41);
+    font-size: 32px;
+    padding-top: 0px;
+    padding-left: 5px;
+    background-color: rgb(225,225,225);
+    border: 3px solid white;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
+}
+
+.bpm-wrapper {
+    border: 6px solid white;
+    width: 75px;
+    height:75px;
+    border-radius:20px;
+    font-family:'SixtyFour', sans-serif;
+    font-size: 18px;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2) ;
+    background-color: rgb(37, 37, 37);
+    padding: 5px;
+    margin-top:0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+}
+
+.pattern-settings-panel {
+    display:flex;
+    flex-direction: row;
+    font-family:'Orbitron', sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.pattern-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: rgb(225, 225, 225);
+    border: 3px solid white;
+    font-family: 'Orbitron', 'sans-serif';
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
 }

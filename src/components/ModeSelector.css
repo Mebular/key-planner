@@ -15,6 +15,11 @@
     color: rgb(41, 41, 41);
 }
 
+.mode-title-wrapper {
+    font-size: 18px;
+    font-family:'Orbitron', sans-serif;
+}
+
 .major-title {
     font-size: 24px;
     font-family:'Orbitron', sans-serif;

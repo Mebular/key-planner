@@ -1,6 +1,5 @@
 import React from 'react';
 import './Key.css'
-import { Scale } from 'tone';
 
 class Key extends React.Component {
 
