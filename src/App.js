@@ -1,5 +1,7 @@
 import './App.css';
-import React, {useState} from 'react'
+import carpetBg from './images/carpet-bg.jpg';
+import metalBg from './images/metal-bg.jpg';
+import React, {useState} from 'react';
 import * as Tone from 'tone';
 import { RootSelector } from './components/RootSelector.js';
 import { ModeSelector } from './components/ModeSelector.js';
@@ -21,8 +23,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="content-wrapper">
+    <div className="App" style={{backgroundImage: `url(${carpetBg})`, backgroundSize: "cover"}}>
+      <div className="content-wrapper" style={{backgroundImage: `url(${metalBg})`, backgroundSize: "cover"}}>
         <h1 className="indicator-wrapper">{keyRoot} {keyMode}</h1>
         <RootSelector root = {keyRoot} changeRoot = {handleRoot}/>
         <div className='scale-mode-wrapper'>
