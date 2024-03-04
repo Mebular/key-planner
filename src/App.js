@@ -3,6 +3,8 @@ import carpetBg from './images/carpet-bg.jpg';
 import metalBg from './images/metal-bg.jpg';
 import React, {useState, useRef, useEffect } from 'react';
 import * as Tone from 'tone';
+import { Knob } from 'react-rotary-knob';
+import * as skins from 'react-rotary-knob-skin-pack';
 import RootSelector from './components/RootSelector.js';
 import ModeSelector from './components/ModeSelector.js';
 import ScaleSelector from './components/ScaleSelector.js';
@@ -41,10 +43,13 @@ function App() {
     setBpm(newBpm);
     Tone.Transport.bpm.value = newBpm;
   }
-
-  let [isPlaying, setIsPlaying] = useState(true);
-  function handlePlaying(set) {
-    setIsPlaying(set);
+  let [pattern, setPattern] = useState("up");
+  function handlePattern(newPattern) {
+    setPattern(newPattern);
+  }
+  let [volume, setVolume] = useState(0);
+  function handleVolume(newVolume) {
+    setVolume(newVolume);
   }
 
   // Build array of notes for synthesizer by adding an 'octave' number to the notes. (C# => C#3)
@@ -67,12 +72,11 @@ function App() {
     // Set status light color based on Transport.state
     const status = Tone.Transport.state;
     if(status==="started") {
-      Tone.Transport.stop()
+      Tone.Transport.stop();
       setLightColor("red");
-      
     }
     else{
-      Tone.Transport.start();
+      Tone.Transport.start();     
       setLightColor("green");
     }
   }
@@ -84,11 +88,32 @@ function App() {
     synthScale = ScaleForSynth(keyScale, octave);
     handleSynthScale(synthScale);
 
+    // Clean up queued notes from last useEffect call
     Tone.Transport.cancel();
-    const synth = new Tone.PolySynth().toDestination();
-    const seq = new Tone.Sequence((time, note) => {
-      synth.triggerAttackRelease(note, 0.1, time);
-    }, synthScale).start(0);
+
+    chordSynth.volume.value = -15;
+    // Loop pattern, with tonic chord on first beat for added context
+    const seq = new Tone.Pattern((time, note) => {
+      /* if(((pattern === "up" || pattern === "upDown") && note===synthScale[0]) || ((pattern === "down" || pattern === "downUp") && note===synthScale[7])) {
+        if(pattern === "upDown" || pattern === "downUp"){
+          chordSynth.triggerAttackRelease(synthScale[0], "4m");
+          chordSynth.triggerAttackRelease(synthScale[2], "4m");
+          chordSynth.triggerAttackRelease(synthScale[4], "4m");
+        }
+        else{
+          chordSynth.triggerAttackRelease(synthScale[0], "2m");
+          chordSynth.triggerAttackRelease(synthScale[2], "2m");
+          chordSynth.triggerAttackRelease(synthScale[4], "2m");
+        }
+      } */
+      synth.triggerAttackRelease(note, "8n");
+
+    }, synthScale, pattern);
+
+    // Loop settings
+    seq.loop = true;
+    seq.interval = "4n";
+    seq.start(0);
 
     // Set status light color based on Transport.state
     const status = Tone.Transport.state;
@@ -99,17 +124,23 @@ function App() {
       setLightColor("red");
     }
 
-  },[keyScale, octave, bpm]);
+  },[keyScale, octave, bpm, pattern]);
+
+  const synth = new Tone.PolySynth().toDestination();
+  const chordSynth = new Tone.PolySynth().toDestination();
 
   return (
     <div className="App" style={{backgroundImage: `url(${carpetBg})`, backgroundSize: "cover"}}>
       <div className="content-wrapper" style={{backgroundImage: `url(${metalBg})`, backgroundSize: "cover"}}>
-        <h1 className="indicator-wrapper">{keyRoot} {keyMode}</h1>
+        <div style={{display: "flex", flexDirection: "row"}}>
+          <h1 className="indicator-wrapper">{keyRoot} {keyMode}</h1>
+          
+        </div>
         <RootSelector root = {keyRoot} changeRoot = {handleRoot}/>
         
         <div className='scale-mode-wrapper'>
           <ScaleSelector root = {keyRoot} mode = {keyMode} changeScale={handleScale}/>
-          <SettingsSelector lightColor = {lightColor} muteLoop = {playMute} octave={octave} bpm={bpm} changeOctave={handleOctave} changeBpm={handleBpm}/>
+          <SettingsSelector lightColor = {lightColor} muteLoop = {playMute} octave={octave} bpm={bpm} pattern={pattern} changeOctave={handleOctave} changeBpm={handleBpm} changePattern={handlePattern}/>
             {/* <div className="pattern-title-wrapper">
                 <h3>PATTERN</h3>
             </div>

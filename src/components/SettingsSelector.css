@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     margin-right: 50px;
-    margin-top: -60px;
+    margin-top: 0px;
 }
 
 .settings-wrapper {
@@ -12,7 +12,7 @@
     flex-direction: column;
     box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2) ;
     background: linear-gradient(135deg, rgb(211, 211, 211), rgb(170, 170, 170));
-    padding:25px;
+    padding:20px;
     color: rgb(41, 41, 41);
 }
 
@@ -60,7 +60,7 @@
     font-family:'Orbitron', sans-serif;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .octave-arrow-button {
@@ -127,4 +127,16 @@
     align-items: center;
     justify-content: center;
     align-content: center;
+    animation: light-flicker 3s linear infinite;
+  }
+
+  @keyframes light-flicker {
+
+    50% {
+        box-shadow: 0px 0px 30px transparent;
+    }
+  }
+
+  .pattern-settings-panel {
+    margin: 0px;
   }

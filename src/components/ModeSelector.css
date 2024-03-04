@@ -16,6 +16,7 @@
 }
 
 .mode-title-wrapper {
+    margin-top: -75px;
     font-size: 18px;
     font-family:'Orbitron', sans-serif;
 }
