@@ -1,0 +1,130 @@
+.settings-selector {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    margin-top: -60px;
+}
+
+.settings-wrapper {
+    border: 3px solid white;
+    border-radius:20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2) ;
+    background: linear-gradient(135deg, rgb(211, 211, 211), rgb(170, 170, 170));
+    padding:25px;
+    color: rgb(41, 41, 41);
+}
+
+.settings-title-wrapper {
+    font-size: 18px;
+    font-family:'Orbitron', sans-serif;
+}
+
+.mute-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    padding: 8px;
+    background-color: rgb(225, 225, 225);
+    border: 3px solid white;
+    font-family: 'Orbitron', 'sans-serif';
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 58px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
+}
+
+.octave-wrapper {
+    border: 6px solid white;
+    width: 75px;
+    height:75px;
+    border-radius:20px;
+    font-family:'SixtyFour', sans-serif;
+    font-size: 18px;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2) ;
+    background-color: rgb(37, 37, 37);
+    padding: 5px;
+    margin-top:0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+}
+
+.octave-settings-panel {
+    display:flex;
+    flex-direction: row;
+    font-family:'Orbitron', sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.octave-arrow-button {
+    height: 50px;
+    width: 30px;
+    border-radius: 5px;
+    font-family: "Orbitron", "sans-serif";
+    color: rgb(41, 41, 41);
+    font-size: 32px;
+    padding-top: 0px;
+    padding-left: 5px;
+    background-color: rgb(225,225,225);
+    border: 3px solid white;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
+}
+
+.bpm-settings-panel {
+    display:flex;
+    flex-direction: row;
+    font-family:'Orbitron', sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.bpm-arrow-button {
+    height: 50px;
+    width: 30px;
+    border-radius: 5px;
+    font-family: "Orbitron", "sans-serif";
+    color: rgb(41, 41, 41);
+    font-size: 32px;
+    padding-top: 0px;
+    padding-left: 5px;
+    background-color: rgb(225,225,225);
+    border: 3px solid white;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
+}
+
+.bpm-wrapper {
+    border: 6px solid white;
+    width: 75px;
+    height:75px;
+    border-radius:20px;
+    font-family:'SixtyFour', sans-serif;
+    font-size: 18px;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2) ;
+    background-color: rgb(37, 37, 37);
+    padding: 5px;
+    margin-top:0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+}
+
+.playing-light {
+    width: 15px;
+    height: 15px;
+    border: 3px solid white;
+    margin-top: 10px;
+    margin-left: 78px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2) ;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }

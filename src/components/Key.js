@@ -1,15 +1,18 @@
 import React from 'react';
 import './Key.css'
+import { useState, useRef } from 'react'
 
-class Key extends React.Component {
+function Key(props){
 
-    IsNoteFlat = (note) => {
+    // If piano note name includes #, it is a flat note
+    const IsNoteFlat = (note) => {
         if(note.includes('#')) {
             return true;
         }
     }
 
-    IsNoteInScale = (note, scale) => {
+    // If note is in the passed scale
+    const IsNoteInScale = (note, scale) => {
         if(scale.includes(note)){
             return true;
         }
@@ -18,7 +21,8 @@ class Key extends React.Component {
         }
     }
 
-    IsNoteRoot = (note, scale) => {
+    // If note is the root tonic of scale
+    const IsNoteRoot = (note, scale) => {
         if(scale[0] === note){
             return true;
         }
@@ -27,51 +31,44 @@ class Key extends React.Component {
         }
     }
 
-    render() {
-        let keyClassName = 'key';
-        const noteIsFlat = this.IsNoteFlat(this.props.note);
+    // Start building className
+    let keyClassName = 'key';
+    let noteIsFlat = IsNoteFlat(props.note);
 
-        if(noteIsFlat){
-            keyClassName += "-flat";
-        }
-
-        let noteIsInScale = this.IsNoteInScale(this.props.note, this.props.keyScale)
-        let noteIsRoot = this.IsNoteRoot(this.props.note, this.props.keyScale)
-
-        let key;
-        if (noteIsFlat) {
-            if(noteIsInScale){
-                key = <div className={keyClassName} style={{background: noteIsRoot ? "linear-gradient(to top, #a6ff08, #292929)" : "linear-gradient(to top, #84cc06, #292929 40%)"}}></div>;
-            }
-            else {
-                key = <div className={keyClassName} style={{backgroundColor: "#292929"}}></div>;
-            }
-        }
-        else {
-            if(noteIsInScale)
-            {
-                key = (
-                    <div className={keyClassName} style={{background: noteIsRoot ? "linear-gradient(to top, #a6ff08, white)" : "linear-gradient(to top, #84cc06, white 40%)"}}>
-                        {/* <div className='key-text'>
-                            {this.props.note[0].toUpperCase()}
-                        </div> */}
-                    </div>
-                    );
-            }
-            else {
-                key = (
-                    <div className={keyClassName} style={{backgroundColor: "white"}}>
-                        {/* <div className='key-text'>
-                            {this.props.note[0].toUpperCase()}
-                        </div> */}
-                    </div>
-                    );
-            }
-        }
-        
-        return key;
+    // If note is flat (black), add -flat to className to style it differently than white keys.
+    if(noteIsFlat){
+        keyClassName += "-flat";
     }
 
+    // Set checks to decide what color to style the keys (white, black, green, bright green)
+    let noteIsInScale = IsNoteInScale(props.note, props.keyScale)
+    let noteIsRoot = IsNoteRoot(props.note, props.keyScale)
+
+    // Build key object using built className and style accordingly to checks.
+    let key;
+    if (noteIsFlat) {   // Black key
+        if(noteIsInScale){  // In scale
+            key = <div className={keyClassName} style={{background: noteIsRoot ? "linear-gradient(to top, #a6ff08, #292929)" : "linear-gradient(to top, #84cc06, #292929 40%)"}}></div>;
+        }
+        else {  // Not in scale
+            key = <div className={keyClassName} style={{backgroundColor: "#292929"}}></div>;
+        }
+    }
+    else {  // White key
+        if(noteIsInScale)   // In scale
+        {
+            key = (
+                <div className={keyClassName} style={{background: noteIsRoot ? "linear-gradient(to top, #a6ff08, white)" : "linear-gradient(to top, #84cc06, white 40%)"}}></div>
+                );
+        }
+        else {  // Not in scale
+            key = (
+                <div className={keyClassName} style={{backgroundColor: "white"}}></div>
+                );
+        }
+    }
+    
+    return key;
 }
 
-export { Key };
+export default Key;

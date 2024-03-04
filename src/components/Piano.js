@@ -1,38 +1,37 @@
 import React from 'react';
-import { Key } from './Key.js'
+import Key from './Key.js'
 import './Piano.css'
 
-class Piano extends React.Component {
-    render() {
+function Piano(props) {
+    // Passed a key as prop, draw the notes and color them in if they are valid in scale
         return(
             <div className='piano'>
-                <Key note="C" keyScale = {this.props.pianoScale}/>
-                <Key note="C#" keyScale = {this.props.pianoScale}/>
-                <Key note="D" keyScale = {this.props.pianoScale}/>
-                <Key note="D#" keyScale = {this.props.pianoScale}/>
-                <Key note="E" keyScale = {this.props.pianoScale}/>
-                <Key note="F" keyScale = {this.props.pianoScale}/>
-                <Key note="F#" keyScale = {this.props.pianoScale}/>
-                <Key note="G" keyScale = {this.props.pianoScale}/>
-                <Key note="G#" keyScale = {this.props.pianoScale}/>
-                <Key note="A" keyScale = {this.props.pianoScale}/>
-                <Key note="A#" keyScale = {this.props.pianoScale}/>
-                <Key note="B" keyScale = {this.props.pianoScale}/>
-                <Key note="C" keyScale = {this.props.pianoScale}/>
-                <Key note="C#" keyScale = {this.props.pianoScale}/>
-                <Key note="D" keyScale = {this.props.pianoScale}/>
-                <Key note="D#" keyScale = {this.props.pianoScale}/>
-                <Key note="E" keyScale = {this.props.pianoScale}/>
-                <Key note="F" keyScale = {this.props.pianoScale}/>
-                <Key note="F#" keyScale = {this.props.pianoScale}/>
-                <Key note="G" keyScale = {this.props.pianoScale}/>
-                <Key note="G#" keyScale = {this.props.pianoScale}/>
-                <Key note="A" keyScale = {this.props.pianoScale}/>
-                <Key note="A#" keyScale = {this.props.pianoScale}/>
-                <Key note="B" keyScale = {this.props.pianoScale}/>
+                <Key note="C" keyScale = {props.pianoScale}/>
+                <Key note="C#" keyScale = {props.pianoScale}/>
+                <Key note="D" keyScale = {props.pianoScale}/>
+                <Key note="D#" keyScale = {props.pianoScale}/>
+                <Key note="E" keyScale = {props.pianoScale}/>
+                <Key note="F" keyScale = {props.pianoScale}/>
+                <Key note="F#" keyScale = {props.pianoScale}/>
+                <Key note="G" keyScale = {props.pianoScale}/>
+                <Key note="G#" keyScale = {props.pianoScale}/>
+                <Key note="A" keyScale = {props.pianoScale}/>
+                <Key note="A#" keyScale = {props.pianoScale}/>
+                <Key note="B" keyScale = {props.pianoScale}/>
+                <Key note="C" keyScale = {props.pianoScale}/>
+                <Key note="C#" keyScale = {props.pianoScale}/>
+                <Key note="D" keyScale = {props.pianoScale}/>
+                <Key note="D#" keyScale = {props.pianoScale}/>
+                <Key note="E" keyScale = {props.pianoScale}/>
+                <Key note="F" keyScale = {props.pianoScale}/>
+                <Key note="F#" keyScale = {props.pianoScale}/>
+                <Key note="G" keyScale = {props.pianoScale}/>
+                <Key note="G#" keyScale = {props.pianoScale}/>
+                <Key note="A" keyScale = {props.pianoScale}/>
+                <Key note="A#" keyScale = {props.pianoScale}/>
+                <Key note="B" keyScale = {props.pianoScale}/>
             </div>
         )
-    }
 }
 
-export { Piano }
+export default Piano;
