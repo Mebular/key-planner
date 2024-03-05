@@ -10,6 +10,9 @@ import ModeSelector from './components/ModeSelector.js';
 import ScaleSelector from './components/ScaleSelector.js';
 import SettingsSelector from './components/SettingsSelector.js';
 
+const synth = new Tone.PolySynth().toDestination();
+const chordSynth = new Tone.PolySynth().toDestination();
+
 function App() {
 
   // Track Root note
@@ -93,7 +96,7 @@ function App() {
 
     chordSynth.volume.value = -15;
     // Loop pattern, with tonic chord on first beat for added context
-    const seq = new Tone.Pattern((time, note) => {
+    let seq = new Tone.Pattern((time, note) => {
       /* if(((pattern === "up" || pattern === "upDown") && note===synthScale[0]) || ((pattern === "down" || pattern === "downUp") && note===synthScale[7])) {
         if(pattern === "upDown" || pattern === "downUp"){
           chordSynth.triggerAttackRelease(synthScale[0], "4m");
@@ -124,10 +127,9 @@ function App() {
       setLightColor("red");
     }
 
-  },[keyScale, octave, bpm, pattern]);
+  },[keyScale, octave, pattern]);
 
-  const synth = new Tone.PolySynth().toDestination();
-  const chordSynth = new Tone.PolySynth().toDestination();
+  
 
   return (
     <div className="App" style={{backgroundImage: `url(${carpetBg})`, backgroundSize: "cover"}}>
