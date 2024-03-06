@@ -6,21 +6,20 @@
     color: rgb(41, 41, 41);
     font-family:'Orbitron', sans-serif;
     position:absolute;
-    margin-left: 10px;
-    margin-top: 40px;
+    margin-left: -35px;
+    margin-top: 43px;
 }
 
 .root-wrapper {
     border: 3px solid white;
     border-radius:20px;
     box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2) ;
-    background: linear-gradient(135deg, rgb(211, 211, 211), rgb(170, 170, 170));
     color: rgb(41, 41, 41);
     padding: 5px;
 }
 
 .root-button-container {
-    padding-left: 40px;
+    padding: 5px;
 }
 
 .root-button {

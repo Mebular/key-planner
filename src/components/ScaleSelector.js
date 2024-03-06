@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState, useRef } from 'react';
 import './ScaleSelector.css'
 import Piano from '../components/Piano.js';
+import rubberBg from '../images/rubber-bg.jpg'
 
 function ScaleSelector(props) {
 

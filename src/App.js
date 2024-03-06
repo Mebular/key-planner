@@ -1,9 +1,10 @@
 import './App.css';
 import carpetBg from './images/carpet-bg.jpg';
 import metalBg from './images/metal-bg.jpg';
+import logo from './images/key-planner-logo.png';
 import React, {useState, useRef, useEffect } from 'react';
 import * as Tone from 'tone';
-import { Knob } from 'react-rotary-knob';
+import { Knob } from 'primereact/knob';
 import * as skins from 'react-rotary-knob-skin-pack';
 import RootSelector from './components/RootSelector.js';
 import ModeSelector from './components/ModeSelector.js';
@@ -53,6 +54,11 @@ function App() {
   let [volume, setVolume] = useState(0);
   function handleVolume(newVolume) {
     setVolume(newVolume);
+    synth.volume.value = newVolume;
+  }
+
+  const changeVol = (event) => {
+    setVolume(event.target.value);
   }
 
   // Build array of notes for synthesizer by adding an 'octave' number to the notes. (C# => C#3)
@@ -129,29 +135,18 @@ function App() {
 
   },[keyScale, octave, pattern]);
 
-  
-
   return (
     <div className="App" style={{backgroundImage: `url(${carpetBg})`, backgroundSize: "cover"}}>
       <div className="content-wrapper" style={{backgroundImage: `url(${metalBg})`, backgroundSize: "cover"}}>
         <div style={{display: "flex", flexDirection: "row"}}>
+          <img className="logo" src={logo} alt="Logo" />
           <h1 className="indicator-wrapper">{keyRoot} {keyMode}</h1>
-          
+          <Knob className="knob" min={-20} max={20} step={1} value={volume} onChange={(e) => handleVolume(e.value)} rangeColor='rgb(37, 37, 37)' valueColor='#a6ff00' size={120} strokeWidth={15} valueTemplate={'VOL'} style={{fontFamily: 'Orbitron, sans-serif', fontSize: "2px"}}/>
         </div>
         <RootSelector root = {keyRoot} changeRoot = {handleRoot}/>
-        
         <div className='scale-mode-wrapper'>
           <ScaleSelector root = {keyRoot} mode = {keyMode} changeScale={handleScale}/>
           <SettingsSelector lightColor = {lightColor} muteLoop = {playMute} octave={octave} bpm={bpm} pattern={pattern} changeOctave={handleOctave} changeBpm={handleBpm} changePattern={handlePattern}/>
-            {/* <div className="pattern-title-wrapper">
-                <h3>PATTERN</h3>
-            </div>
-
-            <div className="pattern-settings-panel">
-                <BsArrowUpRight className='pattern-button' style={{backgroundColor: this.state.pattern==='up' ? "#a6ff0080" : ""}} onClick={this.handlePatternClick.bind(this, "up")}/>
-                <BsArrowDownRight className='pattern-button' style={{backgroundColor: this.state.pattern==='down' ? "#a6ff0080" : ""}} onClick={this.handlePatternClick.bind(this, "down")}/>
-            </div> */}
-
           <ModeSelector mode = {keyMode} changeMode = {handleMode}/>
         </div>
       </div>

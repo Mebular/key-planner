@@ -1,5 +1,6 @@
 
 .indicator-panel {
+    height: 250px;
     display:flex;
     flex-direction: row;
     border-radius:20px;
@@ -7,8 +8,11 @@
     font-size: 20px;
     align-items: center;
     justify-content: center;
-    margin-right: -50px;
+    margin-top:45px;
+    margin-right: -70px;
     margin-left: -200px;
+    padding: 10px;
+    padding-bottom: 30px;
 }
 
 .scale-wrapper {
@@ -23,21 +27,21 @@
     padding: 5px;
     margin-top:30px;
     margin-right: 100px;
-    margin-left: 25px;
+    margin-left: 0px;
     color: white;
 }
 
 .piano-wrapper {
     width: 575px;
-    height:250px;
+    height:auto;
     border-radius:20px;
     font-family:'Orbitron', sans-serif;
     font-size: 20px;
     transform: rotate(90deg);
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
-    margin-right: -150px
+    margin-top: 30px;
+    margin-right: -180px
 }
 
 .pattern-title-wrapper {

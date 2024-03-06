@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './SettingsSelector.css'
+import rubberBg from '../images/rubber-bg.jpg';
 import { RxSpeakerLoud, RxSpeakerOff } from 'react-icons/rx'
 import { BsArrowUpRight } from 'react-icons/bs';
 import { BsArrowDownRight } from 'react-icons/bs';
@@ -56,7 +57,7 @@ function SettingsSelector(props) {
         <div className="settings-title-wrapper">
             <h3>SYNTH</h3>
         </div>
-        <div className="settings-wrapper">
+        <div className="settings-wrapper" style={{backgroundImage: `url(${rubberBg})`, backgroundSize: "1000px 1000px"}}>
 
             { props.lightColor === "green" ? (
                 <RxSpeakerOff className='mute-button' onClick={() => { props.muteLoop()}}/>
@@ -82,12 +83,12 @@ function SettingsSelector(props) {
                 <button className="octave-arrow-button" onClick={() => handleClick("up")}>{">"}</button>
             </div>
             <div className="pattern-settings-panel" style={{marginTop: "20px"}}>
-                <BsArrowUpRight className='pattern-button' style={{backgroundColor: props.pattern==='up' ? "#a6ff0080" : ""}} onClick={() => handlePatternClick("up")}/>
-                <BsArrowDownRight className='pattern-button' style={{backgroundColor: props.pattern==='down' ? "#a6ff0080" : ""}} onClick={() => handlePatternClick("down")}/>
+                <BsArrowUpRight className='pattern-button' style={{backgroundColor: props.pattern==='up' ? "#a6ff00" : ""}} onClick={() => handlePatternClick("up")}/>
+                <BsArrowDownRight className='pattern-button' style={{backgroundColor: props.pattern==='down' ? "#a6ff00" : ""}} onClick={() => handlePatternClick("down")}/>
             </div>
             <div className="pattern-settings-panel">
-                <PiArrowElbowRight className='pattern-button' style={{backgroundColor: props.pattern==='downUp' ? "#a6ff0080" : ""}} onClick={() => handlePatternClick("downUp")}/>
-                <PiArrowElbowLeft className='pattern-button' style={{transform: 'rotate(180deg)', backgroundColor: props.pattern==='upDown' ? "#a6ff0080" : ""}} onClick={() => handlePatternClick("upDown")}/>
+                <PiArrowElbowRight className='pattern-button' style={{backgroundColor: props.pattern==='downUp' ? "#a6ff00" : ""}} onClick={() => handlePatternClick("downUp")}/>
+                <PiArrowElbowLeft className='pattern-button' style={{transform: 'rotate(180deg)', backgroundColor: props.pattern==='upDown' ? "#a6ff00" : ""}} onClick={() => handlePatternClick("upDown")}/>
             </div>
         </div>
             

@@ -1,14 +1,15 @@
 .mode-selector {
     display: flex;
     flex-direction: column;
+    margin-top: 0px;
 }
 
 .mode-wrapper {
+    height: 550px;
     border: 3px solid white;
     border-radius:20px;
     display: flex;
     flex-direction: row;
-    margin-top: 25px;
     box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2) ;
     background: linear-gradient(135deg, rgb(211, 211, 211), rgb(170, 170, 170));
     padding:5px;
@@ -16,7 +17,6 @@
 }
 
 .mode-title-wrapper {
-    margin-top: -75px;
     font-size: 18px;
     font-family:'Orbitron', sans-serif;
 }
@@ -24,22 +24,25 @@
 .major-title {
     font-size: 24px;
     font-family:'Orbitron', sans-serif;
+    color: white;
 }
 
 .major-panel {
     display: flex;
     flex-direction: column;
-    margin-top:72px;
+    margin-top:100px;
 }
 
 .minor-title {
     font-size: 24px;
     font-family:'Orbitron', sans-serif;
+    color: white;
 }
 
 .minor-panel {
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
 }
 
 .mode-button {
