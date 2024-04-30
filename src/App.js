@@ -63,16 +63,16 @@ function App() {
 
   // Build array of notes for synthesizer by adding an 'octave' number to the notes. (C# => C#3)
   const ScaleForSynth = (scale, oct) => {
-    let synth = [];
+    let synthScale = [];
     var i;
     for(i = 0 ; i < 8 ; i++){
         // Increment octave if scale crosses over a C or C#, but only once if the C# was preceded by a C in the given scale
         if(i !== 0 && (scale[i] === "C" || (scale[i] === "C#") && scale[i-1] !== "C")){
             oct++;
         }
-        synth.push(scale[i] + oct.toString());
+        synthScale.push(scale[i] + oct.toString());
     }
-    return synth;
+    return synthScale;
   }
 
   // Mute button for synthesizer
@@ -85,7 +85,7 @@ function App() {
       setLightColor("red");
     }
     else{
-      Tone.Transport.start();     
+      Tone.Transport.start("+0.1");     
       setLightColor("green");
     }
   }
@@ -117,12 +117,11 @@ function App() {
       } */
       synth.triggerAttackRelease(note, "8n");
 
-    }, synthScale, pattern);
+    }, synthScale, pattern).start(0);
 
     // Loop settings
     seq.loop = true;
     seq.interval = "4n";
-    seq.start(0);
 
     // Set status light color based on Transport.state
     const status = Tone.Transport.state;
