@@ -61,13 +61,20 @@ function App() {
     setVolume(event.target.value);
   }
 
+  const startAudioContext = async() => {
+    if(Tone.context.state !== "running"){
+      await Tone.start();
+      console.log("Audio Context Started!");
+    }
+  };
+
   // Build array of notes for synthesizer by adding an 'octave' number to the notes. (C# => C#3)
   const ScaleForSynth = (scale, oct) => {
     let synthScale = [];
     var i;
     for(i = 0 ; i < 8 ; i++){
         // Increment octave if scale crosses over a C or C#, but only once if the C# was preceded by a C in the given scale
-        if(i !== 0 && (scale[i] === "C" || (scale[i] === "C#") && scale[i-1] !== "C")){
+        if(i !== 0 && (scale[i] === "C" || scale[i] === "C#") && scale[i-1] !== "C"){
             oct++;
         }
         synthScale.push(scale[i] + oct.toString());
@@ -85,6 +92,7 @@ function App() {
       setLightColor("red");
     }
     else{
+      startAudioContext();
       Tone.Transport.start("+0.1");     
       setLightColor("green");
     }
@@ -124,13 +132,11 @@ function App() {
     seq.interval = "4n";
 
     // Set status light color based on Transport.state
-    const status = Tone.Transport.state;
-    if(status==="started") {
-      setLightColor("green");
-    }
-    else{
-      setLightColor("red");
-    }
+    setLightColor(Tone.Transport.state === "started" ? "green":"red");
+
+    return () => {
+      seq.dispose();
+    };
 
   },[keyScale, octave, pattern]);
 
